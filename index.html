@@ -6,25 +6,15 @@
 <title>Elite Operations</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap');
-
-:root{
-    --beige:#f5efe6;
-    --black:#111;
-    --white:#fff;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-    font-family:"Inter",sans-serif;
+    margin:0;
+    font-family:Arial;
 }
 
-/* HERO */
+/* HERO IMAGE */
 .hero{
     height:100vh;
-    background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c') center/cover no-repeat;
-    position:relative;
+    background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
 }
 
 /* NAV */
@@ -37,88 +27,11 @@ nav{
     padding:30px 60px;
 }
 
-.logo{
-    font-family:"Playfair Display",serif;
-    color:white;
-    letter-spacing:4px;
-}
-
-nav ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
-}
-
 nav a{
     color:white;
     text-decoration:none;
-    font-size:12px;
-    letter-spacing:2px;
-    cursor:pointer;
-}
-
-/* OVERLAY */
-.overlay{
-    position:fixed;
-    inset:0;
-    display:none;
-    flex-direction:column;
-    justify-content:center;
-    padding:100px;
-    color:white;
-}
-
-/* ABOUT IMAGE (EXECUTIVES) */
-.about{
-    background:url('https://images.unsplash.com/photo-1552664730-d307ca884978') center/cover no-repeat;
-}
-
-/* SERVICES IMAGE (TEAM BACKS) */
-.services{
-    background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
-}
-
-/* CONTACT IMAGE (WOOD DOORS) */
-.contact{
-    background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
-}
-
-/* TEXT */
-.overlay h1{
-    font-family:"Playfair Display",serif;
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.overlay p{
-    max-width:600px;
-    line-height:1.8;
-}
-
-/* CLOSE */
-.close{
-    position:absolute;
-    top:30px;
-    right:40px;
-    font-size:20px;
-    cursor:pointer;
-}
-
-/* CONTACT BUTTON (VISIBLE + ELEGANT) */
-.btn{
-    margin-top:40px;
-    padding:16px 50px;
-    border:2px solid white;
-    background:transparent;
-    color:white;
-    letter-spacing:3px;
-    font-size:12px;
-    cursor:pointer;
-}
-
-.btn:hover{
-    background:white;
-    color:black;
+    margin-left:30px;
+    font-size:14px;
 }
 </style>
 </head>
@@ -126,47 +39,15 @@ nav a{
 <body>
 
 <div class="hero">
-<nav>
-    <div class="logo">ELITE OPERATIONS</div>
-    <ul>
-        <li><a onclick="openPage('about')">WHO WE ARE</a></li>
-        <li><a onclick="openPage('services')">SERVICES</a></li>
-        <li><a onclick="openPage('contact')">CONTACT</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div style="color:white;">ELITE OPERATIONS</div>
+        <div>
+            <a href="about.html">WHO WE ARE</a>
+            <a href="services.html">SERVICES</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </nav>
 </div>
-
-<!-- ABOUT -->
-<div id="about" class="overlay about">
-    <div class="close" onclick="closePage()">✕</div>
-    <h1>Who We Are</h1>
-    <p>EDIT THIS TEXT — your about section here.</p>
-</div>
-
-<!-- SERVICES -->
-<div id="services" class="overlay services">
-    <div class="close" onclick="closePage()">✕</div>
-    <h1>Services</h1>
-    <p>EDIT THIS TEXT — your services here.</p>
-</div>
-
-<!-- CONTACT -->
-<div id="contact" class="overlay contact">
-    <div class="close" onclick="closePage()">✕</div>
-    <h1>Contact</h1>
-    <p>Private inquiries only.</p>
-    <button class="btn">CONTACT</button>
-</div>
-
-<script>
-function openPage(id){
-    document.getElementById(id).style.display = "flex";
-}
-
-function closePage(){
-    document.querySelectorAll('.overlay').forEach(el => el.style.display="none");
-}
-</script>
 
 </body>
 </html>
