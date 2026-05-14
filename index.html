@@ -10,42 +10,41 @@
 
 :root{
     --beige:#f5efe6;
-    --white:#ffffff;
     --black:#111;
-    --brown:#5c4a3f;
-    --gray:#777;
+    --white:#fff;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:"Inter",sans-serif;
-    background:var(--beige);
-    color:var(--black);
+    overflow:hidden;
+}
+
+/* HERO FULL IMAGE */
+.hero{
+    height:100vh;
+    background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 /* NAV */
 nav{
     position:fixed;
-    width:100%;
     top:0;
+    width:100%;
     display:flex;
     justify-content:space-between;
-    padding:25px 80px;
-    background:rgba(245,239,230,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #ddd;
+    padding:30px 60px;
     z-index:1000;
 }
 
 .logo{
     font-family:"Playfair Display",serif;
+    color:white;
     letter-spacing:4px;
-    font-size:14px;
 }
 
 nav ul{
@@ -55,178 +54,130 @@ nav ul{
 }
 
 nav a{
+    color:white;
     text-decoration:none;
-    font-size:11px;
+    font-size:12px;
     letter-spacing:2px;
-    color:var(--black);
+    cursor:pointer;
 }
 
-/* SECTIONS */
-.section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:120px 80px;
+/* OVERLAY SCREENS */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:black;
+    color:white;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px;
+    z-index:2000;
 }
 
-/* HERO */
-.hero{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-}
-
-.hero-text h1{
-    font-family:"Playfair Display",serif;
-    font-size:56px;
-    letter-spacing:3px;
-}
-
-.hero-text p{
-    margin-top:20px;
-    max-width:400px;
-    font-size:13px;
-    color:var(--gray);
-}
-
-/* 🔥 HERO IMAGE (ELITE OFFICE) */
-.hero-img{
-    background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c') center/cover no-repeat;
-}
-
-/* ABOUT */
+/* ABOUT IMAGE (TEAM BACK VIEW) */
 .about{
-    background:var(--white);
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
+    background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
 }
 
-.about-img{
-    background:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
+/* SERVICES IMAGE (EXECUTIVES BACK) */
+.services{
+    background:url('https://images.unsplash.com/photo-1556761175-b413da4baf72') center/cover no-repeat;
 }
 
-.text{
+/* CONTACT IMAGE (LUXURY DOORS) */
+.contact{
+    background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
+}
+
+/* CONTENT STYLE */
+.overlay h1{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.overlay p{
     max-width:600px;
-    font-size:14px;
-    color:var(--gray);
     line-height:1.8;
 }
 
-/* SERVICES */
-.services{
-    background:var(--beige);
+/* CLOSE BUTTON */
+.close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:20px;
+    cursor:pointer;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
-    margin-top:40px;
-}
-
-.card{
-    padding:30px;
-    border:1px solid #ddd;
-    background:white;
-}
-
-.card h3{
-    font-family:"Playfair Display",serif;
-    margin-bottom:10px;
-}
-
-/* CONTACT */
-.contact{
-    background:url('https://images.unsplash.com/photo-1600210492493-0946911123ea') center/cover no-repeat;
-    color:white;
-}
-
+/* CONTACT BUTTON */
 .btn{
     margin-top:30px;
-    padding:12px 30px;
-    border:1px solid currentColor;
-    background:none;
-    font-size:11px;
+    padding:14px 40px;
+    border:1px solid white;
+    background:transparent;
+    color:white;
     letter-spacing:2px;
     cursor:pointer;
 }
 
 .btn:hover{
-    background:var(--black);
-    color:white;
+    background:white;
+    color:black;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
+<div class="hero"></div>
+
+<!-- NAV -->
 <nav>
     <div class="logo">ELITE OPERATIONS</div>
     <ul>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a onclick="openPage('about')">ABOUT</a></li>
+        <li><a onclick="openPage('services')">SERVICES</a></li>
+        <li><a onclick="openPage('contact')">CONTACT</a></li>
     </ul>
 </nav>
 
-<!-- HERO -->
-<section id="home" class="section hero">
-    <div class="hero-text">
-        <h1>Structure. Discretion. Precision.</h1>
-        <p>
-            Elite household and financial operations designed for high-level private environments.
-        </p>
-    </div>
-    <div class="hero-img"></div>
-</section>
-
 <!-- ABOUT -->
-<section id="about" class="section about">
-    <div>
-        <h2 class="logo">ABOUT US</h2>
-        <p class="text">
-        We specialize in comprehensive residential management and financial coordination operations for high-net-worth environments, providing structure, absolute discretion, and impeccable precision at every level of the operation.
-        <br><br>
-        Our foundation is built on the integration of more than 7 years of experience in remote coordination of residential operations and executive support, together with more than 20 years of advanced experience in finance.
-        </p>
-    </div>
-
-    <div class="about-img"></div>
-</section>
+<div id="about" class="overlay about">
+    <div class="close" onclick="closePage()">✕</div>
+    <h1>About Us</h1>
+    <p>
+    We specialize in comprehensive residential management and financial coordination operations for high-net-worth environments, providing structure, discretion, and precision.
+    </p>
+</div>
 
 <!-- SERVICES -->
-<section id="services" class="section services">
-    <div>
-        <h2 class="logo">SERVICES</h2>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Household Operations</h3>
-                <p>Structured management and lifestyle coordination.</p>
-            </div>
-
-            <div class="card">
-                <h3>Financial Coordination</h3>
-                <p>Organized financial systems and oversight.</p>
-            </div>
-
-            <div class="card">
-                <h3>Private Advisory</h3>
-                <p>Confidential operational and strategic support.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div id="services" class="overlay services">
+    <div class="close" onclick="closePage()">✕</div>
+    <h1>Services</h1>
+    <p>
+    Household operations, financial coordination, and private advisory designed for elite environments.
+    </p>
+</div>
 
 <!-- CONTACT -->
-<section id="contact" class="section contact">
-    <div>
-        <h2 class="logo">CONTACT</h2>
-        <p class="text">For private inquiries, please contact us directly.</p>
-        <button class="btn">CONTACT</button>
-    </div>
-</section>
+<div id="contact" class="overlay contact">
+    <div class="close" onclick="closePage()">✕</div>
+    <h1>Contact</h1>
+    <p>For private inquiries, please contact us directly.</p>
+    <button class="btn">CONTACT</button>
+</div>
+
+<script>
+function openPage(id){
+    document.getElementById(id).style.display = "flex";
+}
+
+function closePage(){
+    document.querySelectorAll('.overlay').forEach(el => el.style.display="none");
+}
+</script>
 
 </body>
 </html>
