@@ -1,135 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Clario</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Household & Finance Management</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #F7F5F0;
-    color: #111111;
-  }
+    body {
+        margin: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: #f6f1ea;
+        color: #111;
+    }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 24px;
-  }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 60px;
+        background: #f6f1ea;
+    }
 
-  .hero {
-    text-align: center;
-    padding: 80px 0;
-  }
+    .logo {
+        font-size: 18px;
+        letter-spacing: 3px;
+        font-weight: 300;
+    }
 
-  .logo {
-    font-family: Georgia, serif;
-    font-size: 42px;
-    letter-spacing: 12px;
-    margin-bottom: 10px;
-  }
+    nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: #111;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
 
-  .tagline {
-    font-size: 12px;
-    letter-spacing: 4px;
-    color: #666666;
-    margin-bottom: 20px;
-  }
+    .hero {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
 
-  .subtitle {
-    font-size: 14px;
-    color: #333333;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+    .hero h1 {
+        font-size: 42px;
+        letter-spacing: 4px;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
 
-  h2 {
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-top: 80px;
-  }
+    .hero p {
+        font-size: 16px;
+        max-width: 600px;
+        color: #333;
+        line-height: 1.6;
+    }
 
-  p {
-    line-height: 1.8;
-    font-size: 14px;
-    color: #333;
-  }
+    .btn {
+        margin-top: 40px;
+        padding: 14px 40px;
+        border: 1px solid #111;
+        background: transparent;
+        cursor: pointer;
+        letter-spacing: 3px;
+        font-size: 13px;
+        transition: all 0.3s ease;
+    }
 
-  .section {
-    margin-top: 60px;
-  }
+    .btn:hover {
+        background: #111;
+        color: #fff;
+    }
 
-  .contact {
-    margin-top: 80px;
-    text-align: center;
-    font-size: 14px;
-  }
+    section {
+        padding: 80px 60px;
+        text-align: center;
+    }
 
-  a {
-    color: #111;
-    text-decoration: none;
-    border-bottom: 1px solid #999;
-  }
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        padding: 30px;
+        background: #fff;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        background: #f6f1ea;
+    }
+
+    /* Contact modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background: #fff;
+        padding: 40px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .modal input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <div class="logo">HF • ELITE</div>
+    <nav>
+        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact" onclick="openModal()">CONTACT</a>
+    </nav>
+</header>
 
-  <div class="hero">
-    <div class="logo">CLARIO</div>
-    <div class="tagline">STRUCTURE • CONTROL • CLARITY</div>
+<section class="hero">
+    <h1>HOUSEHOLD & FINANCE MANAGEMENT</h1>
+    <p>
+        Discreet, structured and elevated management for high-value homes and private finances.
+        Excellence. Trust. Precision.
+    </p>
 
-    <div class="subtitle">
-      Private Operations & Financial Management for private residences, estates, and family environments.
+    <button class="btn" onclick="openModal()">TOUCH</button>
+</section>
+
+<section id="services">
+    <h2 style="letter-spacing:3px;">OUR SERVICES</h2>
+    <div class="services">
+        <div class="card">Household Management</div>
+        <div class="card">Financial Organization</div>
+        <div class="card">Staff Coordination</div>
+        <div class="card">Budget & Asset Control</div>
     </div>
-  </div>
+</section>
 
-  <div class="section">
-    <h2>WHO WE ARE</h2>
-    <p>
-      We are a professional team specializing in private operations and financial management.
+<section id="about">
+    <h2 style="letter-spacing:3px;">ABOUT</h2>
+    <p style="max-width:700px;margin:auto;line-height:1.7;">
+        We provide a private, structured and elite-level management service for households and finances.
+        Designed for clients who value discretion, organization, and excellence in every detail.
     </p>
-  </div>
+</section>
 
-  <div class="section">
-    <h2>OPERATIONS</h2>
-    <p>
-      Coordination of staff, vendors, maintenance, scheduling, logistics, procurement, and inventory management.
-    </p>
-  </div>
+<footer>
+    EXCELLENCE • TRUST • DISCRETION
+</footer>
 
-  <div class="section">
-    <h2>FINANCIAL MANAGEMENT</h2>
-    <p>
-      Bookkeeping, expense tracking, payment monitoring, budgeting, P&L reporting, and cash flow visibility.
-    </p>
-
-    <p>
-      Advanced support includes controller-level oversight and CFO-style financial analysis.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>HOW WE WORK</h2>
-    <p>
-      Remote-first service with on-site visits when required. Focused on discretion, precision, and structure.
-    </p>
-  </div>
-
-  <div class="contact">
-    <h2>CONTACT</h2>
-    <p>
-      <a href="mailto:contact@clario.com">contact@clario.com</a>
-    </p>
-  </div>
-
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>Contact</h3>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Message">
+        <button class="btn" onclick="closeModal()">SEND</button>
+    </div>
 </div>
+
+<script>
+function openModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
