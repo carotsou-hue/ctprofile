@@ -25,6 +25,7 @@ body{
     font-family:"Inter",sans-serif;
     background:var(--beige);
     color:var(--black);
+    line-height:1.6;
 }
 
 /* NAV */
@@ -36,6 +37,7 @@ nav{
     backdrop-filter:blur(10px);
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:20px 60px;
     border-bottom:1px solid #ddd;
     z-index:1000;
@@ -49,10 +51,20 @@ nav .logo{
 
 nav ul{
     display:flex;
-    gap:40px;
+    gap:30px;
     list-style:none;
     font-size:12px;
     letter-spacing:2px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--black);
+    transition:0.3s;
+}
+
+nav a:hover{
+    opacity:0.6;
 }
 
 /* HERO */
@@ -81,191 +93,165 @@ nav ul{
     font-size:13px;
     color:var(--gray);
     letter-spacing:2px;
+    max-width:500px;
 }
 
+/* BUTTONS */
 .btn{
     margin-top:30px;
     padding:14px 40px;
     border:1px solid var(--black);
     background:transparent;
+    color:var(--black);
+    font-size:11px;
+    letter-spacing:2px;
     cursor:pointer;
-    letter-spacing:3px;
-    font-size:12px;
     transition:0.3s;
+    width:fit-content;
 }
 
 .btn:hover{
     background:var(--black);
-    color:white;
+    color:var(--white);
 }
 
 /* RIGHT IMAGE */
 .right{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#111;
-}
-
-.right img{
-    width:90%;
-    height:80%;
-    object-fit:cover;
-    border:1px solid rgba(255,255,255,0.2);
+    background:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36') center/cover no-repeat;
 }
 
 /* SECTIONS */
-.sections{
+section{
+    padding:120px 80px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+    font-size:36px;
+    margin-bottom:20px;
+    letter-spacing:2px;
+}
+
+.section-text{
+    color:var(--gray);
+    max-width:800px;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+/* CARDS */
+.grid{
+    margin-top:40px;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    padding:80px 60px;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
-.section-box{
-    background:white;
-    padding:60px;
+.card{
     border:1px solid #ddd;
-    cursor:pointer;
-    transition:0.3s;
+    padding:30px;
+    background:rgba(255,255,255,0.4);
 }
 
-.section-box:hover{
-    transform:scale(1.01);
-}
-
-.section-box h2{
+.card h3{
     font-family:"Playfair Display",serif;
     margin-bottom:10px;
 }
 
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
-}
-
-.modal-content{
-    background:white;
-    width:70%;
-    max-width:900px;
+/* FOOTER */
+footer{
     padding:40px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+    text-align:center;
+    font-size:12px;
+    color:var(--gray);
+    border-top:1px solid #ddd;
 }
-
-.modal-content img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.close{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:20px;
-    cursor:pointer;
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="logo">HF ELITE</div>
+    <div class="logo">ELITE OPERATIONS</div>
     <ul>
-        <li onclick="openAbout()">ABOUT US</li>
-        <li onclick="openServices()">SERVICES</li>
+        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="#services">SERVICES & ADVISORY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-
     <div class="left">
-        <h1>Executive Household Operations</h1>
-        <p>Elite management for private residences, hospitality systems and financial coordination.</p>
-        <button class="btn">TOUCH</button>
+        <h1>Structure. Discretion. Precision.</h1>
+        <p>
+            Elite household and finance operations for high-level environments, 
+            designed to bring calm structure, operational excellence, and seamless coordination.
+        </p>
+
+        <!-- BOTÓN ABOUT US -->
+        <a href="#about"><button class="btn">WHO WE ARE</button></a>
+
+        <!-- BOTÓN SERVICES -->
+        <a href="#services"><button class="btn">SERVICES</button></a>
     </div>
 
-    <div class="right">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
-    </div>
-
+    <div class="right"></div>
 </div>
 
-<!-- MAIN SECTIONS -->
-<div class="sections">
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-title">About Us</div>
+    <div class="section-text">
+        We specialize in structured household and financial operations, combining over 7 years 
+        of private household coordination experience with more than 20 years of advanced financial expertise.
+        <br><br>
+        Our approach is defined by discretion, emotional intelligence, and operational precision — ensuring
+        every environment runs smoothly, efficiently, and with quiet excellence.
+    </div>
+</section>
 
-    <div class="section-box" onclick="openAbout()">
-        <h2>ABOUT US</h2>
-        <p>Discreet, structured and elite household management.</p>
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-title">Services & Advisory</div>
+    <div class="section-text">
+        Tailored operational and lifestyle support designed for high-level private environments.
     </div>
 
-    <div class="section-box" onclick="openServices()">
-        <h2>SERVICES & ADVISORY</h2>
-        <p>Financial coordination, operations, and private consulting.</p>
-    </div>
+    <div class="grid">
+        <div class="card">
+            <h3>Household Operations</h3>
+            <p>Structured daily management, coordination, and lifestyle support systems.</p>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>Financial Coordination</h3>
+            <p>Organized financial tracking, planning assistance, and operational oversight.</p>
+        </div>
 
-<!-- MODAL ABOUT -->
-<div class="modal" id="about">
-    <div class="modal-content">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-        <div>
-            <h2>ABOUT US</h2>
-            <p>
-                We specialize in elite household and finance operations for high-net-worth environments,
-                delivering structure, discretion, and precision.
-            </p>
+        <div class="card">
+            <h3>Private Advisory</h3>
+            <p>Confidential support for high-level decision-making and personal operations.</p>
         </div>
     </div>
-</div>
+</section>
 
-<!-- MODAL SERVICES -->
-<div class="modal" id="services">
-    <div class="modal-content">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40">
-        <div>
-            <h2>SERVICES & ADVISORY</h2>
-            <p>
-                Household management<br>
-                Financial coordination<br>
-                Staff supervision<br>
-                Property operations<br>
-                Confidential advisory
-            </p>
-        </div>
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-title">Contact</div>
+    <div class="section-text">
+        For private inquiries, please reach out via email.
     </div>
-</div>
 
-<script>
-function openAbout(){
-    document.getElementById("about").style.display="flex";
-}
+    <a href="mailto:youremail@email.com">
+        <button class="btn">CONTACT US</button>
+    </a>
+</section>
 
-function openServices(){
-    document.getElementById("services").style.display="flex";
-}
-
-window.onclick = function(e){
-    if(e.target.classList.contains("modal")){
-        e.target.style.display="none";
-    }
-}
-</script>
+<footer>
+    © 2026 Elite Operations. All rights reserved.
+</footer>
 
 </body>
 </html>
