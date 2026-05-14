@@ -2,36 +2,101 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elite Operations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+:root{
+  --beige:#f5f1eb;
+  --white:#ffffff;
+  --black:#1a1a1a;
+  --brown:#4b3b2a;
+}
+
 body{
-    margin:0;
-    font-family:Arial;
+  margin:0;
+  font-family: "Inter", sans-serif;
+  background:var(--beige);
+  color:var(--black);
 }
 
-/* HERO IMAGE */
+/* HERO */
 .hero{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+  height:100vh;
+  background-image:url("https://images.unsplash.com/photo-1524758631624-e2822e304c36");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
 }
 
-/* NAV */
-nav{
-    position:absolute;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    padding:30px 60px;
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(245,241,235,0.65);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:30px;
-    font-size:14px;
+.hero-content{
+  position:relative;
+  max-width:700px;
+}
+
+h1{
+  font-size:42px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:16px;
+  opacity:0.8;
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:25px;
+}
+
+button{
+  padding:12px 18px;
+  margin:8px;
+  border:1px solid var(--brown);
+  background:transparent;
+  color:var(--black);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:var(--brown);
+  color:white;
+}
+
+/* GALLERY */
+.gallery{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  padding:40px;
+  flex-wrap:wrap;
+}
+
+.gallery img{
+  width:280px;
+  height:200px;
+  object-fit:cover;
+  border-radius:6px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:12px;
+  opacity:0.6;
 }
 </style>
 </head>
@@ -39,144 +104,121 @@ nav a{
 <body>
 
 <div class="hero">
-    <nav>
-        <div style="color:white;">ELITE OPERATIONS</div>
-        <div>
-            <a href="about.html">WHO WE ARE</a>
-            <a href="services.html">SERVICES</a>
-            <a href="contact.html">CONTACT</a>
-        </div>
-    </nav>
-</div>
+  <div class="overlay"></div>
 
-</body>
-</html> <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
-body{margin:0;font-family:Arial;color:white;}
+  <div class="hero-content">
+    <h1>ELITE HOUSEHOLD & FINANCE OPERATIONS</h1>
+    <p>Structure. Discretion. Seamless Excellence.</p>
 
-.bg{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:80px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg">
-    <div>
-        <h1>Who We Are</h1>
-        <p>EDIT THIS TEXT — your description here.</p>
+    <div class="buttons">
+      <button onclick="openAbout()">WHO WE ARE</button>
+      <button onclick="openServices()">SERVICES & ADVISORY</button>
     </div>
+  </div>
 </div>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
-body{margin:0;font-family:Arial;color:black;}
+<!-- 3 IMAGES HOME -->
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c">
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+  <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+</div>
 
-.bg{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:80px;
-}
-</style>
-</head>
+<footer>
+Elite Private Operations — All visuals are placeholders and fully editable
+</footer>
 
-<body>
+<script>
+/* =========================
+   EDIT YOUR IMAGES HERE
+========================= */
+const images = {
+  office: "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
+  team: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+  desk: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd",
+  door: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+};
 
-<div class="bg">
-    <div>
-        <h1>Services & Advisory</h1>
-        <p>EDIT THIS TEXT — your services here.</p>
+/* =========================
+   WHO WE ARE WINDOW
+========================= */
+function openAbout(){
+  const w = window.open();
+  w.document.write(`
+  <html>
+  <head>
+  <title>Who We Are</title>
+  <style>
+  body{font-family:Arial;background:#f5f1eb;margin:0;color:#1a1a1a;}
+  .img{width:100%;height:60vh;object-fit:cover;}
+  .content{padding:30px;max-width:800px;margin:auto;}
+  </style>
+  </head>
+  <body>
+    <img class="img" src="${images.team}">
+    <div class="content">
+      <h1>Who We Are</h1>
+      <p>
+      We specialize in elite household and finance operations for high-level environments.
+      Built on 7+ years of household management coordination and 20+ years of financial expertise,
+      we bring structure, discretion, and calm precision to every detail.
+      </p>
     </div>
-</div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
-body{margin:0;font-family:Arial;color:white;}
-
-.bg{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:80px;
+  </body>
+  </html>
+  `);
 }
 
-.btn{
-    margin-top:20px;
-    padding:15px 40px;
-    border:1px solid white;
-    background:none;
+/* =========================
+   SERVICES WINDOW
+========================= */
+function openServices(){
+  const w = window.open();
+  w.document.write(`
+  <html>
+  <head>
+  <title>Services</title>
+  <style>
+  body{font-family:Arial;background:#f5f1eb;margin:0;}
+  .img{width:100%;height:50vh;object-fit:cover;}
+  .wrap{display:flex;gap:20px;padding:30px;flex-wrap:wrap;}
+  .box{flex:1;min-width:280px;}
+  button{
+    padding:12px 16px;
+    border:none;
+    background:#4b3b2a;
     color:white;
     cursor:pointer;
-}
-</style>
-</head>
+    margin-top:10px;
+  }
+  </style>
+  </head>
+  <body>
 
-<body>
+    <img class="img" src="${images.desk}">
 
-<div class="bg">
-    <div>
-        <h1>Contact</h1>
-        <p>Private inquiries only.</p>
-        <button class="btn">CONTACT</button>
+    <div class="wrap">
+      <div class="box">
+        <h2>Services & Advisory</h2>
+        <p>
+        Household operations, estate coordination, financial structure,
+        lifestyle management, and private advisory systems.
+        </p>
+      </div>
+
+      <div class="box">
+        <img class="img" style="height:250px" src="${images.door}">
+        <button onclick="alert('Contact feature can be added here')">
+          TOUCH BASE
+        </button>
+      </div>
     </div>
-</div>
 
-</body>
-</html>  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<style>
-body{margin:0;font-family:Arial;color:white;}
-
-.bg{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:80px;
+  </body>
+  </html>
+  `);
 }
-
-.btn{
-    margin-top:20px;
-    padding:15px 40px;
-    border:1px solid white;
-    background:none;
-    color:white;
-    cursor:pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg">
-    <div>
-        <h1>Contact</h1>
-        <p>Private inquiries only.</p>
-        <button class="btn">CONTACT</button>
-    </div>
-</div>
+</script>
 
 </body>
 </html>
