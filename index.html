@@ -3,191 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Household & Finance Management</title>
+<title>Household & Finance Management</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        background-color: #f6f1ea;
-        color: #111;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px 60px;
-        background: #f6f1ea;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .logo {
-        font-size: 18px;
-        letter-spacing: 3px;
-        font-weight: 300;
-    }
+body {
+    background: #f5efe6;
+    font-family: "Inter", sans-serif;
+    color: #111;
+}
 
-    nav a {
-        margin-left: 30px;
-        text-decoration: none;
-        color: #111;
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
+/* GRID MAIN LAYOUT */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    min-height: 100vh;
+}
 
-    .hero {
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
+/* TOP LEFT */
+.left-hero {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    .hero h1 {
-        font-size: 42px;
-        letter-spacing: 4px;
-        font-weight: 300;
-        margin-bottom: 20px;
-    }
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    letter-spacing: 4px;
+}
 
-    .hero p {
-        font-size: 16px;
-        max-width: 600px;
-        color: #333;
-        line-height: 1.6;
-    }
+.subtitle {
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #333;
+}
 
-    .btn {
-        margin-top: 40px;
-        padding: 14px 40px;
-        border: 1px solid #111;
-        background: transparent;
-        cursor: pointer;
-        letter-spacing: 3px;
-        font-size: 13px;
-        transition: all 0.3s ease;
-    }
+.tagline {
+    margin-top: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #666;
+}
 
-    .btn:hover {
-        background: #111;
-        color: #fff;
-    }
+/* TOP RIGHT (image placeholder style) */
+.right-hero {
+    background: #111;
+    color: #f5efe6;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    section {
-        padding: 80px 60px;
-        text-align: center;
-    }
+.right-hero h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
 
-    .services {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 40px;
-    }
+.right-hero p {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.8;
+}
 
-    .card {
-        border: 1px solid #ddd;
-        padding: 30px;
-        background: #fff;
-    }
+/* SERVICES CENTER BLACK BLOCK */
+.services {
+    grid-column: 1 / 3;
+    background: #111;
+    color: #f5efe6;
+    text-align: center;
+    padding: 80px 40px;
+}
 
-    footer {
-        text-align: center;
-        padding: 40px;
-        font-size: 12px;
-        letter-spacing: 2px;
-        background: #f6f1ea;
-    }
+.services h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
 
-    /* Contact modal */
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.6);
-        justify-content: center;
-        align-items: center;
-    }
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
 
-    .modal-content {
-        background: #fff;
-        padding: 40px;
-        width: 300px;
-        text-align: center;
-    }
+.service-list div {
+    font-size: 12px;
+    letter-spacing: 2px;
+    border: 1px solid rgba(245,239,230,0.2);
+    padding: 20px;
+}
 
-    .modal input {
-        width: 100%;
-        margin: 10px 0;
-        padding: 10px;
-        border: 1px solid #ccc;
-    }
+/* BOTTOM LEFT */
+.bottom-left {
+    padding: 80px;
+}
 
+.bottom-left p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* BOTTOM RIGHT */
+.bottom-right {
+    padding: 80px;
+    background: #e7ded3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bottom-right h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 30px;
+    padding: 14px 40px;
+    border: 1px solid #111;
+    background: transparent;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* FOOTER */
+footer {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    background: #f5efe6;
+    border-top: 1px solid #ddd;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    width: 320px;
+}
+
+.modal input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">HF • ELITE</div>
-    <nav>
-        <a href="#services">SERVICES</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact" onclick="openModal()">CONTACT</a>
-    </nav>
-</header>
+<div class="container">
 
-<section class="hero">
-    <h1>HOUSEHOLD & FINANCE MANAGEMENT</h1>
-    <p>
-        Discreet, structured and elevated management for high-value homes and private finances.
-        Excellence. Trust. Precision.
-    </p>
+    <!-- LEFT TOP -->
+    <div class="left-hero">
+        <div class="logo">HF</div>
+        <div class="subtitle">HOUSEHOLD MANAGER & FINANCE MANAGER</div>
+        <div class="tagline">EXCELLENCE • TRUST • DISCRETION</div>
 
-    <button class="btn" onclick="openModal()">TOUCH</button>
-</section>
-
-<section id="services">
-    <h2 style="letter-spacing:3px;">OUR SERVICES</h2>
-    <div class="services">
-        <div class="card">Household Management</div>
-        <div class="card">Financial Organization</div>
-        <div class="card">Staff Coordination</div>
-        <div class="card">Budget & Asset Control</div>
+        <button class="btn" onclick="openModal()">TOUCH</button>
     </div>
-</section>
 
-<section id="about">
-    <h2 style="letter-spacing:3px;">ABOUT</h2>
-    <p style="max-width:700px;margin:auto;line-height:1.7;">
-        We provide a private, structured and elite-level management service for households and finances.
-        Designed for clients who value discretion, organization, and excellence in every detail.
-    </p>
-</section>
+    <!-- RIGHT TOP -->
+    <div class="right-hero">
+        <h2>Elite Household Operations</h2>
+        <p>Structured, discreet and elevated management for private residences and financial coordination.</p>
+    </div>
 
-<footer>
-    EXCELLENCE • TRUST • DISCRETION
-</footer>
+    <!-- SERVICES -->
+    <div class="services">
+        <h3>OUR SERVICES</h3>
+        <div class="service-list">
+            <div>Household Management</div>
+            <div>Staff Coordination</div>
+            <div>Financial Management</div>
+            <div>Budgeting & Planning</div>
+            <div>Asset Management</div>
+            <div>Confidential Advisory</div>
+        </div>
+    </div>
+
+    <!-- BOTTOM LEFT -->
+    <div class="bottom-left">
+        <p>
+            We provide a discreet, structured and high-level operational service for private households.
+            Focused on excellence, organization and trust in every detail.
+        </p>
+    </div>
+
+    <!-- BOTTOM RIGHT -->
+    <div class="bottom-right">
+        <h4>Designed for high-value homes</h4>
+        <button class="btn" onclick="openModal()">CONTACT</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>EXPERIENCE</div>
+        <div>DISCRETION</div>
+        <div>EXCELLENCE</div>
+        <div>INTEGRITY</div>
+        <div>GLOBAL STANDARD</div>
+    </footer>
+
+</div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
     <div class="modal-content">
         <h3>Contact</h3>
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Message">
+        <input placeholder="Name">
+        <input placeholder="Email">
+        <input placeholder="Message">
         <button class="btn" onclick="closeModal()">SEND</button>
     </div>
 </div>
 
 <script>
-function openModal() {
+function openModal(){
     document.getElementById("modal").style.display = "flex";
 }
-
-function closeModal() {
+function closeModal(){
     document.getElementById("modal").style.display = "none";
 }
 </script>
