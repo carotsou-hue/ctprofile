@@ -1,594 +1,135 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Carolina Tsou â€“ Private Household Manager & Estate Operations Director based in Miramar, Florida.">
-  <title>Carolina Tsou â€“ Private Household Manager</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    /* â”€â”€ Variables â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    :root {
-      --burgundy:      #6B2737;
-      --burgundy-dark: #4A1A26;
-      --burgundy-mid:  #7D3044;
-      --gold:          #C9A065;
-      --gold-light:    #D4B588;
-      --bg-light:      #FAF8F5;
-      --bg-dark:       #1C1410;
-      --text-dark:     #2D2620;
-      --text-light:    #FAF8F5;
-      --text-muted:    #7A6A62;
-      --border:        #E8DDD6;
-      --nav-h:         70px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clario</title>
 
-    /* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F7F5F0;
+    color: #111111;
+  }
 
-    /* â”€â”€ Container â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
 
-    /* â”€â”€ Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: var(--nav-h);
-      transition: background 0.35s ease, box-shadow 0.35s ease;
-    }
-    #nav.nav-scrolled {
-      background: var(--bg-dark);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.35);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      height: 100%; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; color: var(--gold); letter-spacing: 0.06em;
-    }
-    .nav-links { list-style: none; display: flex; gap: 2.5rem; }
-    .nav-links a {
-      color: rgba(250,248,245,0.7);
-      font-size: 0.78rem; font-weight: 400;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
+  .hero {
+    text-align: center;
+    padding: 80px 0;
+  }
 
-    /* hamburger */
-    .nav-hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--text-light); border-radius: 2px; transition: all 0.3s;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .logo {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    letter-spacing: 12px;
+    margin-bottom: 10px;
+  }
 
-    /* mobile dropdown */
-    .nav-mobile {
-      display: none; list-style: none; flex-direction: column;
-      background: var(--bg-dark); max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-    }
-    .nav-mobile.open { max-height: 300px; }
-    .nav-mobile li { border-top: 1px solid rgba(255,255,255,0.06); }
-    .nav-mobile a {
-      display: block; padding: 1rem 2rem;
-      color: rgba(250,248,245,0.75); font-size: 0.85rem;
-      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
-    }
-    .nav-mobile a:hover { color: var(--gold); }
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #666666;
+    margin-bottom: 20px;
+  }
 
-    /* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #120C09 0%, #3A1520 55%, var(--burgundy) 100%);
-      display: flex; flex-direction: column; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0; pointer-events: none;
-      background: repeating-linear-gradient(
-        45deg, transparent, transparent 80px,
-        rgba(201,160,101,0.025) 80px, rgba(201,160,101,0.025) 81px
-      );
-    }
-    .hero-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
-      padding-top: var(--nav-h);
-      display: grid; grid-template-columns: 1fr 1.35fr;
-      align-items: center; gap: 5rem; min-height: 100vh;
-    }
-    .hero-photo-wrap { display: flex; justify-content: center; }
-    .hero-ring {
-      position: relative; width: 340px; height: 340px;
-      border-radius: 50%; padding: 5px;
-      background: conic-gradient(from 180deg, var(--gold), var(--burgundy-dark) 40%, var(--gold) 70%, var(--burgundy-dark) 100%);
-      box-shadow: 0 0 70px rgba(107,39,55,0.55), 0 0 140px rgba(107,39,55,0.2);
-      flex-shrink: 0;
-    }
-    .hero-photo {
-      width: 100%; height: 100%;
-      border-radius: 50%; object-fit: cover; object-position: center top;
-    }
-    .hero-initials {
-      width: 100%; height: 100%; border-radius: 50%;
-      background: var(--burgundy-dark);
-      display: none; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif; font-size: 4.5rem; color: var(--gold);
-    }
-    .hero-text { color: var(--text-light); }
-    .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1rem;
-    }
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 600; line-height: 1.08; color: #fff; margin-bottom: 1.25rem;
-    }
-    .hero-title {
-      font-size: 1.05rem; font-weight: 300; line-height: 1.65;
-      color: rgba(250,248,245,0.75); margin-bottom: 1.5rem;
-    }
-    .hero-tagline {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: 0.95rem; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 1.5rem;
-    }
-    .hero-loc {
-      display: flex; align-items: center; gap: 0.45rem;
-      font-size: 0.82rem; color: rgba(250,248,245,0.45);
-      letter-spacing: 0.06em; margin-bottom: 2.75rem;
-    }
-    .hero-cta {
-      display: inline-block; padding: 0.9rem 2.25rem;
-      border: 1px solid var(--gold); color: var(--gold);
-      font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
-      border-radius: 2px; transition: background 0.25s, color 0.25s;
-    }
-    .hero-cta:hover { background: var(--gold); color: var(--bg-dark); }
+  .subtitle {
+    font-size: 14px;
+    color: #333333;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
 
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: rgba(250,248,245,0.35); font-size: 0.65rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-    }
-    .scroll-line {
-      width: 1px; height: 42px;
-      background: linear-gradient(to bottom, rgba(201,160,101,0.55), transparent);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+  h2 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-top: 80px;
+  }
 
-    /* â”€â”€ Section commons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .section { padding: 7rem 0; }
-    .section-dark  { background: var(--bg-dark);  color: var(--text-light); }
-    .section-wine  {
-      background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
-      color: var(--text-light);
-    }
-    .sec-label {
-      font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .sec-label::after { content:''; display:block; width:38px; height:1px; background:var(--gold); }
-    .sec-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500;
-      line-height: 1.2; margin-bottom: 3rem;
-    }
-    .sec-heading.dark { color: var(--text-dark); }
-    .sec-heading.light { color: var(--text-light); }
+  p {
+    line-height: 1.8;
+    font-size: 14px;
+    color: #333;
+  }
 
-    /* â”€â”€ About â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .about-rule {
-      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem;
-    }
-    .rule-line  { flex: 1; height: 1px; background: var(--border); }
-    .rule-gem   { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .section {
+    margin-top: 60px;
+  }
 
-    .about-body {
-      max-width: 780px; margin: 0 auto 4.5rem; text-align: center;
-    }
-    .about-body p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.25rem; }
-    .about-body p:last-child { margin-bottom: 0; }
-    .about-body strong { color: var(--text-dark); font-weight: 700; }
+  .contact {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 14px;
+  }
 
-    /* Stats */
-    .stats {
-      display: flex; align-items: center; justify-content: center;
-      max-width: 600px; margin: 0 auto;
-      border: 1px solid var(--border); border-radius: 4px; overflow: hidden;
-    }
-    .stat { flex: 1; text-align: center; padding: 2rem 1.5rem; }
-    .stat-n {
-      display: block; font-family: 'Playfair Display', serif;
-      font-size: 2.5rem; color: var(--burgundy); font-weight: 600;
-      line-height: 1; margin-bottom: 0.5rem;
-    }
-    .stat-l { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-    .stat-div { width: 1px; height: 60px; background: var(--border); flex-shrink: 0; }
+  a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #999;
+  }
+</style>
 
-    /* â”€â”€ Timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before {
-      content: ''; position: absolute;
-      top: 14px; left: 0; bottom: 0; width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(201,160,101,0.08));
-    }
-    .t-entry { position: relative; margin-bottom: 3.5rem; }
-    .t-entry:last-child { margin-bottom: 0; }
-    .t-dot {
-      position: absolute; top: 14px; left: -2rem; transform: translateX(-50%);
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--gold); border: 2px solid var(--bg-dark);
-      box-shadow: 0 0 0 3px rgba(201,160,101,0.28);
-    }
-    .t-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px; padding: 2rem;
-      transition: background 0.25s;
-    }
-    .t-card:hover { background: rgba(255,255,255,0.07); }
-    .t-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-    .t-date { font-size: 0.76rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
-    .t-loc  { font-size: 0.76rem; color: rgba(250,248,245,0.38); letter-spacing: 0.05em; }
-    .t-role { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; color: var(--text-light); margin-bottom: 0.3rem; line-height: 1.3; }
-    .t-company { font-size: 0.83rem; color: rgba(250,248,245,0.45); font-weight: 300; letter-spacing: 0.03em; margin-bottom: 1rem; }
-    .t-desc { font-size: 0.95rem; color: rgba(250,248,245,0.7); line-height: 1.85; margin-bottom: 1.25rem; }
-    .t-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .t-tags span {
-      font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(201,160,101,0.28);
-      padding: 0.25rem 0.75rem; border-radius: 2px;
-    }
-
-    /* â”€â”€ Expertise â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .expertise-wrap { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .e-tag {
-      padding: 0.75rem 1.5rem;
-      border: 1px solid var(--border); border-radius: 3px;
-      font-size: 0.875rem; color: var(--text-dark); letter-spacing: 0.03em;
-      transition: border-color 0.2s, color 0.2s, background 0.2s; cursor: default;
-    }
-    .e-tag:hover { border-color: var(--burgundy); color: var(--burgundy); background: rgba(107,39,55,0.04); }
-
-    /* â”€â”€ Contact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .contact-intro { font-size: 1rem; color: rgba(250,248,245,0.72); max-width: 540px; line-height: 1.85; margin-bottom: 3.5rem; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-    .c-card {
-      display: flex; align-items: center; gap: 1.25rem;
-      padding: 1.5rem 1.75rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 6px; color: var(--text-light);
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
-    }
-    .c-card.link:hover { background: rgba(255,255,255,0.12); border-color: rgba(201,160,101,0.4); transform: translateY(-2px); }
-    .c-icon {
-      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(201,160,101,0.12);
-      border: 1px solid rgba(201,160,101,0.3);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold);
-    }
-    .c-type { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.2rem; }
-    .c-val  { font-size: 0.93rem; color: rgba(250,248,245,0.82); }
-
-    /* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    footer { background: #0D0A07; padding: 2.5rem 0; text-align: center; }
-    .f-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 0.4rem; }
-    .f-sub  { font-size: 0.75rem; color: rgba(250,248,245,0.28); letter-spacing: 0.09em; }
-
-    /* â”€â”€ Fade-in â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .fade { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .fade.visible { opacity: 1; transform: none; }
-
-    /* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    @media (max-width: 800px) {
-      .nav-links    { display: none; }
-      .nav-hamburger{ display: flex; }
-      .nav-mobile   { display: flex; }
-
-      .hero-inner {
-        grid-template-columns: 1fr; text-align: center;
-        gap: 2.5rem;
-        padding-top: calc(var(--nav-h) + 2rem);
-        padding-bottom: 4rem; min-height: unset;
-      }
-      .hero-ring  { width: 220px; height: 220px; margin: 0 auto; }
-      .hero-loc   { justify-content: center; }
-      .hero-scroll{ display: none; }
-
-      .section { padding: 5rem 0; }
-
-      .stats { flex-direction: column; }
-      .stat-div { width: 50px; height: 1px; }
-
-      .timeline { padding-left: 1.5rem; }
-    }
-  </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-brand">CT</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav-hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+<div class="container">
+
+  <div class="hero">
+    <div class="logo">CLARIO</div>
+    <div class="tagline">STRUCTURE • CONTROL • CLARITY</div>
+
+    <div class="subtitle">
+      Private Operations & Financial Management for private residences, estates, and family environments.
     </div>
-    <ul class="nav-mobile">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-inner">
+  <div class="section">
+    <h2>WHO WE ARE</h2>
+    <p>
+      We are a professional team specializing in private operations and financial management.
+    </p>
+  </div>
 
-      <div class="hero-photo-wrap">
-        <div class="hero-ring">
-          <img
-            src="profile.jpeg"
-            alt="Carolina Tsou"
-            class="hero-photo"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-          >
-          <div class="hero-initials">CT</div>
-        </div>
-      </div>
+  <div class="section">
+    <h2>OPERATIONS</h2>
+    <p>
+      Coordination of staff, vendors, maintenance, scheduling, logistics, procurement, and inventory management.
+    </p>
+  </div>
 
-      <div class="hero-text">
-        <p class="hero-eyebrow">Private &amp; Estate Operations</p>
-        <h1 class="hero-name">Carolina<br>Tsou</h1>
-        <p class="hero-title">Remote Estate & Household Operations<br>&amp; Lifestyle & Property Coordination | Executive Support</p>
-        <p class="hero-tagline">Discretion &nbsp;&middot;&nbsp; Precision &nbsp;&middot;&nbsp; Excellence</p>
-        <p class="hero-loc">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Miami, Florida
-        </p>
-        <a href="#contact" class="hero-cta">Get in touch</a>
-      </div>
+  <div class="section">
+    <h2>FINANCIAL MANAGEMENT</h2>
+    <p>
+      Bookkeeping, expense tracking, payment monitoring, budgeting, P&L reporting, and cash flow visibility.
+    </p>
 
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+    <p>
+      Advanced support includes controller-level oversight and CFO-style financial analysis.
+    </p>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section fade">
-    <div class="container">
-      <div class="sec-label">About</div>
-      <div class="about-rule">
-        <div class="rule-line"></div>
-        <div class="rule-gem"></div>
-        <div class="rule-line"></div>
-      </div>
-      <h2 class="sec-heading dark">Who I Am</h2>
-      <div class="about-body">
-        <p>As an operations professional with <strong>7+ years of experience</strong>, I specialize in creating structure, consistency, and ease within high-net-worth private residences, estates, and family office environments. My work is centered on the details that keep life and business moving smoothly: staff coordination, vendor oversight, household systems, executive calendars, travel logistics, procurement, inventory, maintenance, and daily operational follow-through&mdash;always with discretion, emotional intelligence, and a high standard of service.</p>
-        <p>As Founder of <strong>Braja Stays</strong>, a boutique aparthotel in Manuel Antonio, Costa Rica with <strong>700+ guest reviews and a 4.98 rating</strong>, I understand how to build reliable systems that feel personal, refined, and effortless to the people they serve. I also offer an exclusive private operations service with a customized program and detailed reporting for expenses, investments, assets, and liabilities, giving families and executives a clear view of their financial activity while supporting thoughtful decision-making. My approach combines precision with warmth, bringing calm leadership, confidentiality, and a deeply human sense of care to every environment I support.</p>
-      </div>
-      <div class="stats">
-        <div class="stat">
-          <span class="stat-n">7+</span>
-          <span class="stat-l">Years of Experience</span>
-        </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <span class="stat-n">700+</span>
-          <span class="stat-l">Guest Reviews</span>
-        </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <span class="stat-n">4.98</span>
-          <span class="stat-l">Average Rating</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="section">
+    <h2>HOW WE WORK</h2>
+    <p>
+      Remote-first service with on-site visits when required. Focused on discretion, precision, and structure.
+    </p>
+  </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section section-dark fade">
-    <div class="container">
-      <div class="sec-label">Experience</div>
-      <h2 class="sec-heading light">Professional Journey</h2>
-      <div class="timeline">
+  <div class="contact">
+    <h2>CONTACT</h2>
+    <p>
+      <a href="mailto:contact@clario.com">contact@clario.com</a>
+    </p>
+  </div>
 
-        <!-- 1 -->
-        <div class="t-entry">
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <div class="t-meta">
-              <span class="t-date">Mar 2023 â€“ Present</span>
-              <span class="t-loc">Costa Rica &middot; Hybrid</span>
-            </div>
-            <h3 class="t-role">Founder &amp; Private Property Operations Director</h3>
-            <p class="t-company">Braja Stays &middot; Self-employed</p>
-            <p class="t-desc">Founded and operate a boutique aparthotel in Manuel Antonio, Costa Rica, nestled within lush mountainous jungle near the world-renowned Manuel Antonio National Park. Lead the full concept, design direction, and operational structure of the property. Developed SOPs, workflows, onboarding systems, and service standards designed for efficiency, consistency, and long-term scalability. Manage contractors, vendors, and external partners. Achieved 700+ guest reviews at a 4.98 rating. Currently leading an expansion to include six additional studios and a penthouse within the same development.</p>
-            <div class="t-tags">
-              <span>Property Management</span>
-              <span>Operations Management</span>
-              <span>SOP Development</span>
-              <span>Hospitality</span>
-              <span>Vendor Coordination</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="t-entry">
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <div class="t-meta">
-              <span class="t-date">Jul 2019 â€“ Apr 2024</span>
-              <span class="t-loc">Miami, Florida &middot; On-site</span>
-            </div>
-            <h3 class="t-role">Private Household Manager</h3>
-            <p class="t-company">Private Family â€“ Interior Design Industry &middot; Full-time</p>
-            <p class="t-desc">Managed daily operations for a high-net-worth private residence in the interior design industry, ensuring structure, consistency, and smooth day-to-day execution. Oversaw household staff, vendors, maintenance teams, and external service providers. Coordinated calendars, travel logistics, scheduling, and overall lifestyle organization. Managed procurement, inventory control, and coordination of household services. Maintained strict confidentiality and a high standard of professionalism throughout.</p>
-            <div class="t-tags">
-              <span>Estate Operations</span>
-              <span>Staff Coordination</span>
-              <span>Vendor Management</span>
-              <span>Travel Logistics</span>
-              <span>Calendar Management</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="t-entry">
-          <div class="t-dot"></div>
-          <div class="t-card">
-            <div class="t-meta">
-              <span class="t-date">Jan 2017 â€“ Mar 2019</span>
-              <span class="t-loc">Southwest Ranches, Florida</span>
-            </div>
-            <h3 class="t-role">Private Household Operations Assistant</h3>
-            <p class="t-company">Private Family</p>
-            <p class="t-desc">Supported daily operations within a private household, assisting with scheduling, organization, and household coordination. Provided structured support across logistics, household systems, and daily operational execution to ensure smooth day-to-day functioning. Maintained strict discretion and consistency within a confidential private environment.</p>
-            <div class="t-tags">
-              <span>Household Coordination</span>
-              <span>Scheduling</span>
-              <span>Logistics</span>
-              <span>Discretion</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERTISE -->
-  <section id="expertise" class="section fade">
-    <div class="container">
-      <div class="sec-label">Expertise</div>
-      <h2 class="sec-heading dark">Core Competencies</h2>
-      <div class="expertise-wrap">
-        <span class="e-tag">Household &amp; Estate Operations</span>
-        <span class="e-tag">Staff Coordination &amp; Leadership</span>
-        <span class="e-tag">Vendor &amp; Service Provider Management</span>
-        <span class="e-tag">Executive Scheduling &amp; Calendar Management</span>
-        <span class="e-tag">Travel Logistics &amp; Planning</span>
-        <span class="e-tag">Property &amp; Facilities Management</span>
-        <span class="e-tag">Hospitality Operations</span>
-        <span class="e-tag">SOP Development &amp; Implementation</span>
-        <span class="e-tag">Procurement &amp; Inventory Control</span>
-        <span class="e-tag">Discretion &amp; Confidentiality</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section section-wine fade">
-    <div class="container">
-      <div class="sec-label">Contact</div>
-      <h2 class="sec-heading light">Let's Connect</h2>
-      <p class="contact-intro">Available for private household management, estate operations, and executive support roles in South Florida and beyond.</p>
-      <div class="contact-grid">
-
-        <a href="tel:+19546004459" class="c-card link">
-          <div class="c-icon">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div>
-            <span class="c-type">Phone</span>
-            <span class="c-val">(954) 600-4459</span>
-          </div>
-        </a>
-
-        <a href="https://linkedin.com/in/carolina-tsou-161b643ba" target="_blank" rel="noopener" class="c-card link">
-          <div class="c-icon">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <div>
-            <span class="c-type">LinkedIn</span>
-            <span class="c-val">carolina-tsou</span>
-          </div>
-        </a>
-
-        <div class="c-card">
-          <div class="c-icon">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <span class="c-type">Location</span>
-            <span class="c-val">Miami, Florida</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p class="f-name">Carolina Tsou</p>
-      <p class="f-sub">Private Household Manager &amp; Estate Operations Director</p>
-    </div>
-  </footer>
-
-  <script>
-    // Nav becomes solid on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('nav-scrolled', window.scrollY > 60);
-    }, { passive: true });
-
-    // Mobile hamburger
-    const btn     = document.querySelector('.nav-hamburger');
-    const mobileNav = document.querySelector('.nav-mobile');
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-    });
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      btn.classList.remove('open');
-      mobileNav.classList.remove('open');
-    }));
-
-    // Fade-in on scroll via IntersectionObserver
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade').forEach(el => io.observe(el));
-  </script>
+</div>
 
 </body>
 </html>
