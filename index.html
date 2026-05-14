@@ -3,249 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Household & Finance Management</title>
+<title>Elite Household & Finance Operations</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+    --beige:#f5efe6;
+    --black:#111;
+    --white:#ffffff;
+    --gray:#666;
 }
 
-body {
-    background: #f5efe6;
-    font-family: "Inter", sans-serif;
-    color: #111;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* GRID MAIN LAYOUT */
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    min-height: 100vh;
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--beige);
+    color:var(--black);
 }
 
-/* TOP LEFT */
-.left-hero {
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* NAV BAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(245,239,230,0.9);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    padding:20px 60px;
+    border-bottom:1px solid #ddd;
+    z-index:1000;
 }
 
-.logo {
-    font-family: "Playfair Display", serif;
-    font-size: 48px;
-    letter-spacing: 4px;
+nav .logo{
+    font-family:"Playfair Display",serif;
+    letter-spacing:3px;
+    font-size:18px;
 }
 
-.subtitle {
-    margin-top: 20px;
-    font-size: 14px;
-    letter-spacing: 3px;
-    color: #333;
+nav ul{
+    display:flex;
+    gap:40px;
+    list-style:none;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
-.tagline {
-    margin-top: 30px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #666;
+nav ul li{
+    cursor:pointer;
 }
 
-/* TOP RIGHT (image placeholder style) */
-.right-hero {
-    background: #111;
-    color: #f5efe6;
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* HERO */
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:100vh;
+    padding-top:100px;
 }
 
-.right-hero h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 32px;
-    letter-spacing: 2px;
+.left{
+    padding:80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
-.right-hero p {
-    margin-top: 15px;
-    font-size: 13px;
-    opacity: 0.8;
+.left h1{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    letter-spacing:4px;
 }
 
-/* SERVICES CENTER BLACK BLOCK */
-.services {
-    grid-column: 1 / 3;
-    background: #111;
-    color: #f5efe6;
-    text-align: center;
-    padding: 80px 40px;
+.left p{
+    margin-top:20px;
+    font-size:13px;
+    color:var(--gray);
+    letter-spacing:2px;
 }
 
-.services h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    margin-bottom: 40px;
+/* IMAGE BOX */
+.right{
+    background:#111;
+    color:var(--beige);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px;
 }
 
-.service-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 900px;
-    margin: auto;
+.image-box{
+    width:100%;
+    height:400px;
+    background:#222;
+    border:1px solid rgba(255,255,255,0.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
 }
 
-.service-list div {
-    font-size: 12px;
-    letter-spacing: 2px;
-    border: 1px solid rgba(245,239,230,0.2);
-    padding: 20px;
+/* SERVICES */
+.services{
+    padding:100px 60px;
+    text-align:center;
 }
 
-/* BOTTOM LEFT */
-.bottom-left {
-    padding: 80px;
+.services h2{
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+    margin-bottom:40px;
 }
 
-.bottom-left p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #333;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-/* BOTTOM RIGHT */
-.bottom-right {
-    padding: 80px;
-    background: #e7ded3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.card{
+    border:1px solid #ccc;
+    padding:20px;
+    font-size:12px;
+    letter-spacing:2px;
+    background:white;
 }
 
-.bottom-right h4 {
-    font-family: "Playfair Display", serif;
-    font-size: 22px;
+/* CONTENT SECTION */
+.content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    padding:80px 60px;
+    gap:40px;
+}
+
+.box{
+    background:white;
+    padding:40px;
+    border:1px solid #ddd;
+}
+
+.box img{
+    width:100%;
+    margin-top:20px;
 }
 
 /* BUTTON */
-.btn {
-    margin-top: 30px;
-    padding: 14px 40px;
-    border: 1px solid #111;
-    background: transparent;
-    cursor: pointer;
-    letter-spacing: 3px;
-    font-size: 12px;
-    transition: 0.3s;
+.btn{
+    margin-top:30px;
+    padding:14px 40px;
+    border:1px solid var(--black);
+    background:transparent;
+    cursor:pointer;
+    letter-spacing:3px;
+    font-size:12px;
+    transition:0.3s;
 }
 
-.btn:hover {
-    background: #111;
-    color: #fff;
+.btn:hover{
+    background:var(--black);
+    color:white;
 }
 
 /* FOOTER */
-footer {
-    grid-column: 1 / 3;
-    display: flex;
-    justify-content: space-around;
-    padding: 40px;
-    font-size: 10px;
-    letter-spacing: 2px;
-    background: #f5efe6;
-    border-top: 1px solid #ddd;
+footer{
+    padding:40px;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:2px;
+    border-top:1px solid #ddd;
 }
 
 /* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
 }
 
-.modal-content {
-    background: #fff;
-    padding: 40px;
-    width: 320px;
+.modal-content{
+    background:white;
+    padding:40px;
+    width:320px;
 }
 
-.modal input {
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+.modal input{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- NAV BAR -->
+<nav>
+    <div class="logo">HF ELITE</div>
+    <ul>
+        <li>QUIÉNES SOMOS</li>
+        <li>QUÉ OFRECEMOS</li>
+        <li>CONTACTO</li>
+    </ul>
+</nav>
 
-    <!-- LEFT TOP -->
-    <div class="left-hero">
-        <div class="logo">HF</div>
-        <div class="subtitle">HOUSEHOLD MANAGER & FINANCE MANAGER</div>
-        <div class="tagline">EXCELLENCE • TRUST • DISCRETION</div>
+<!-- HERO -->
+<div class="hero">
+
+    <div class="left">
+        <h1 contenteditable="true">Executive Household Operations</h1>
+        <p contenteditable="true">
+            Elite management for private residences, hospitality systems and financial coordination.
+        </p>
 
         <button class="btn" onclick="openModal()">TOUCH</button>
     </div>
 
-    <!-- RIGHT TOP -->
-    <div class="right-hero">
-        <h2>Elite Household Operations</h2>
-        <p>Structured, discreet and elevated management for private residences and financial coordination.</p>
-    </div>
-
-    <!-- SERVICES -->
-    <div class="services">
-        <h3>OUR SERVICES</h3>
-        <div class="service-list">
-            <div>Household Management</div>
-            <div>Staff Coordination</div>
-            <div>Financial Management</div>
-            <div>Budgeting & Planning</div>
-            <div>Asset Management</div>
-            <div>Confidential Advisory</div>
+    <div class="right">
+        <div class="image-box">
+            <p>OFFICE IMAGE / BRAND VISUAL</p>
+            <small contenteditable="true">You can replace this with a photo</small>
         </div>
     </div>
 
-    <!-- BOTTOM LEFT -->
-    <div class="bottom-left">
-        <p>
-            We provide a discreet, structured and high-level operational service for private households.
-            Focused on excellence, organization and trust in every detail.
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+    <h2 contenteditable="true">OUR SERVICES</h2>
+
+    <div class="grid">
+        <div class="card" contenteditable="true">Household Management</div>
+        <div class="card" contenteditable="true">Financial Coordination</div>
+        <div class="card" contenteditable="true">Staff Supervision</div>
+        <div class="card" contenteditable="true">Budget & Planning</div>
+        <div class="card" contenteditable="true">Property Operations</div>
+        <div class="card" contenteditable="true">Confidential Advisory</div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+    <div class="box">
+        <h3 contenteditable="true">Who We Are</h3>
+        <p contenteditable="true">
+            We provide structured, discreet and high-level household and finance management services designed for elite residences.
         </p>
+
+        <!-- IMAGE EDITABLE -->
+        <img src="https://via.placeholder.com/600x300" contenteditable="true">
     </div>
 
-    <!-- BOTTOM RIGHT -->
-    <div class="bottom-right">
-        <h4>Designed for high-value homes</h4>
-        <button class="btn" onclick="openModal()">CONTACT</button>
-    </div>
+    <div class="box">
+        <h3 contenteditable="true">What We Offer</h3>
+        <p contenteditable="true">
+            Operational excellence, financial structure, and complete lifestyle coordination for private clients.
+        </p>
 
-    <!-- FOOTER -->
-    <footer>
-        <div>EXPERIENCE</div>
-        <div>DISCRETION</div>
-        <div>EXCELLENCE</div>
-        <div>INTEGRITY</div>
-        <div>GLOBAL STANDARD</div>
-    </footer>
+        <img src="https://via.placeholder.com/600x300">
+    </div>
 
 </div>
+
+<!-- FOOTER -->
+<footer>
+    EXCELLENCE • DISCRETION • TRUST • EXECUTION
+</footer>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
@@ -260,10 +295,11 @@ footer {
 
 <script>
 function openModal(){
-    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal").style.display="flex";
 }
+
 function closeModal(){
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal").style.display="none";
 }
 </script>
 
